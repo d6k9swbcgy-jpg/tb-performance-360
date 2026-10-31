@@ -1,0 +1,11 @@
+{
+  "name": "TB PERFORMANCE 360 – by Tom Büttner",
+  "short_name": "TB PERFORMANCE",
+  "description": "Dein persönlicher Trainings- und Gesundheitscoach.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0d1820",
+  "theme_color": "#12232d",
+  "icons": []
+}

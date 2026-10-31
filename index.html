@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12232d">
+<meta name="description" content="TB PERFORMANCE 360 – dein persönlicher Trainings- und Gesundheitscoach.">
+<link rel="manifest" href="manifest.webmanifest">
+<title>TB PERFORMANCE 360</title>
+<style>
+:root{--bg:#0d1820;--panel:#152630;--panel2:#1c303b;--line:#29414d;--txt:#f2f6f7;--muted:#9fb2bb;--mint:#9be2c4;--gold:#e6c477;--red:#ef9b91}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#0c1720,#12232d 55%,#0d1820);color:var(--txt);font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+header{padding:24px 18px 16px;max-width:900px;margin:auto} .brand{display:flex;align-items:center;gap:13px}.logo{width:52px;height:52px;border-radius:16px;background:linear-gradient(145deg,#294a56,#162b35);display:grid;place-items:center;border:1px solid #47616b;color:var(--mint);font-weight:900;font-size:17px;letter-spacing:-1px}.eyebrow{font-size:10px;letter-spacing:2px;color:var(--mint);font-weight:800}.brand h1{font-size:22px;letter-spacing:1px;margin:2px 0 0}.sub{color:var(--muted);font-size:12px;margin-top:3px}.wrap{max-width:900px;margin:auto;padding:0 14px 100px}.hero{background:linear-gradient(120deg,#1c3742,#142630);border:1px solid #35515d;border-radius:22px;padding:19px;margin:8px 0 17px}.hero h2{font-size:23px;line-height:1.15;margin:7px 0}.hero p{color:#c2d0d5;margin:7px 0 0}.tag{display:inline-block;border:1px solid #42616b;border-radius:30px;padding:5px 9px;font-size:10px;color:var(--mint);letter-spacing:.5px}
+nav{display:flex;gap:7px;overflow:auto;padding:5px 0 14px;position:sticky;top:0;background:#0e1b24;z-index:5}nav button{border:1px solid var(--line);background:#142630;color:var(--muted);padding:10px 13px;border-radius:12px;white-space:nowrap;font-weight:650}nav button.active{background:var(--mint);color:#10242a;border-color:var(--mint)}
+section{display:none}section.active{display:block}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{background:rgba(21,38,48,.94);border:1px solid var(--line);border-radius:17px;padding:14px;margin-bottom:11px}.card h3{margin:0 0 10px;font-size:15px}.metric{font-size:25px;font-weight:800;letter-spacing:-.7px}.muted{color:var(--muted);font-size:12px}.metric small{font-size:12px;color:var(--muted);font-weight:500}.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.pill{font-size:10px;border-radius:30px;padding:5px 8px;background:#203c42;color:var(--mint);border:1px solid #345b59}.warning{background:#493a25;color:#f3d18b;border-color:#6c5630}label{display:block;color:#c0cdd2;font-size:12px;margin:10px 0 5px}input,select,textarea{width:100%;padding:12px;border-radius:11px;border:1px solid #36505b;background:#0e1c25;color:var(--txt);font:inherit}textarea{min-height:75px;resize:vertical}.btn{border:0;border-radius:12px;background:var(--mint);color:#10242a;padding:12px 15px;font-weight:800;cursor:pointer}.btn.secondary{background:#243d48;color:#e7f0f2;border:1px solid #3a5661}.btn.danger{background:#49302e;color:#ffd0c9;border:1px solid #70413d}.full{width:100%;margin-top:12px}.list{display:flex;flex-direction:column;gap:8px}.item{background:#10212a;border:1px solid #29414d;border-radius:12px;padding:11px}.item small{display:block;color:var(--muted);margin-top:3px}.empty{color:var(--muted);font-size:13px;padding:8px 0}.bar{height:7px;background:#29414d;border-radius:9px;overflow:hidden;margin-top:8px}.bar span{display:block;height:100%;width:0;background:var(--mint)}.foot{text-align:center;color:#728892;font-size:10px;margin:24px 0}.notice{border-left:3px solid var(--gold);padding:9px 12px;background:#302b20;color:#e8d8ae;border-radius:0 10px 10px 0;font-size:12px;margin:10px 0}.checks{display:grid;grid-template-columns:1fr 1fr;gap:8px}.checks label{margin:0;display:flex;gap:8px;align-items:center;background:#10212a;border:1px solid #29414d;border-radius:10px;padding:9px}.checks input{width:auto;accent-color:#9be2c4}
+@media(min-width:650px){.grid{grid-template-columns:repeat(3,1fr)}header{padding-top:30px}.hero{padding:25px}.wrap{padding-left:22px;padding-right:22px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand"><div class="logo">TB<br>360</div><div><div class="eyebrow">BY TOM BÜTTNER</div><h1>TB PERFORMANCE 360</h1><div class="sub">Dein Körper. Dein Rhythmus. Deine Leistung.</div></div></div>
+</header>
+<div class="wrap">
+ <div class="hero"><span class="tag">PERSONAL FITNESS & HEALTH COACH</span><h2>Dein Training.<br>Dein Leben. Dein Rhythmus.</h2><p>Ein flexibler Trainingsbegleiter, der Sport, Schichtdienst und Regeneration zusammenbringt.</p></div>
+ <nav aria-label="Hauptnavigation">
+  <button class="active" data-tab="today">Heute</button><button data-tab="training">Training</button><button data-tab="shifts">Schichtplan</button><button data-tab="health">Gesundheit</button><button data-tab="profile">Profil</button>
+ </nav>
+ <section id="today" class="active">
+  <div class="row"><h2>Dein Überblick</h2><span class="pill" id="todayDate"></span></div>
+  <div class="grid">
+   <div class="card"><div class="muted">Herzfrequenz</div><div class="metric">— <small>bpm</small></div><div class="muted">Noch keine Garmin-Daten</div></div>
+   <div class="card"><div class="muted">HRV</div><div class="metric">— <small>ms</small></div><div class="muted">Herzfrequenzvariabilität</div></div>
+   <div class="card"><div class="muted">Body Battery</div><div class="metric">— <small>/ 100</small></div><div class="muted">Energie-Reserve</div></div>
+   <div class="card"><div class="muted">Schritte</div><div class="metric">—</div><div class="muted">Tagesaktivität</div></div>
+   <div class="card"><div class="muted">Schlaf</div><div class="metric">— <small>Std.</small></div><div class="muted">Erholung</div></div>
+   <div class="card"><div class="muted">VO₂max</div><div class="metric">—</div><div class="muted">Ausdauerindikator</div></div>
+  </div>
+  <div class="card"><h3>Wie fühlst du dich heute?</h3><select id="feeling"><option value="">Tagesform auswählen</option><option>Sehr fit</option><option>Gut</option><option>Mittelmäßig</option><option>Erschöpft</option></select><div id="coach" class="notice">Wähle deine Tagesform. Später kann die Empfehlung zusätzlich deine Garmin-Daten und Schichten berücksichtigen.</div></div>
+  <div class="card"><div class="row"><h3>Zuletzt erfasste Einheiten</h3><span class="pill" id="workoutCount">0 Einheiten</span></div><div id="recentWorkouts" class="list empty">Noch keine Einheiten erfasst.</div></div>
+ </section>
+ <section id="training">
+  <h2>Training dokumentieren</h2>
+  <div class="card">
+   <label for="sport">Sportart</label><select id="sport"><option>Krafttraining</option><option>Ausdauer</option><option>Laufen</option><option>Radfahren</option><option>Mobility / Dehnen</option><option>Zuhause trainieren</option><option>Fitnessstudio</option><option>Schwimmen</option><option>Wandern</option></select>
+   <div class="grid"><div><label for="duration">Dauer (Minuten)</label><input id="duration" type="number" min="1" max="1440" value="30"></div><div><label for="intensity">Intensität</label><select id="intensity"><option>Leicht</option><option selected>Moderat</option><option>Intensiv</option></select></div></div>
+   <label for="trainingNotes">Notizen / Übungen / Gewichte</label><textarea id="trainingNotes" placeholder="z. B. Kniebeugen 3 × 10 mit 50 kg ..."></textarea>
+   <button class="btn full" id="saveWorkout">Training speichern</button>
+  </div>
+  <div class="card"><h3>Trainingshistorie</h3><div id="allWorkouts" class="list empty">Noch keine Einträge.</div></div>
+ </section>
+ <section id="shifts">
+  <h2>Dein flexibler Schichtplan</h2>
+  <div class="card">
+   <p class="muted">Lege jeden Dienst individuell mit Datum und Uhrzeit an. Es gibt kein vorgegebenes Schichtmuster.</p>
+   <label for="shiftDate">Datum</label><input id="shiftDate" type="date">
+   <label for="shiftType">Diensttyp</label><input id="shiftType" placeholder="z. B. Frühdienst, Spätdienst, Rufbereitschaft">
+   <div class="grid"><div><label for="shiftStart">Beginn</label><input id="shiftStart" type="time" value="06:00"></div><div><label for="shiftEnd">Ende</label><input id="shiftEnd" type="time" value="14:00"></div></div>
+   <button class="btn full" id="saveShift">Dienst speichern</button>
+  </div>
+  <div class="card"><h3>Geplante Dienste</h3><div id="shiftList" class="list empty">Noch keine Dienste eingetragen.</div></div>
+ </section>
+ <section id="health">
+  <h2>Gesundheit & Garmin</h2>
+  <div class="card"><div class="row"><h3>Garmin fēnix 7 Pro Solar</h3><span class="pill warning">Noch nicht verbunden</span></div>
+   <p class="muted">Geplante Datenfelder – abhängig von Garmin-Freigabe und tatsächlich verfügbaren Messwerten.</p>
+   <div class="checks">
+    <label><input type="checkbox" checked disabled> Herzfrequenz</label><label><input type="checkbox" checked disabled> Ruhepuls</label><label><input type="checkbox" checked disabled> HRV</label><label><input type="checkbox" checked disabled> Schritte</label><label><input type="checkbox" checked disabled> Schlaf</label><label><input type="checkbox" checked disabled> Stress</label><label><input type="checkbox" checked disabled> Body Battery*</label><label><input type="checkbox" checked disabled> VO₂max*</label><label><input type="checkbox" checked disabled> Aktivitäten</label><label><input type="checkbox" checked disabled> Pulse Ox*</label>
+   </div><p class="muted">* Verfügbarkeit hängt von API-Berechtigungen, Gerät und Garmin-Datenfreigabe ab.</p>
+   <div class="notice">Die Felder sind derzeit Platzhalter. Es werden keine Gesundheitsdaten aus Garmin abgerufen. Dafür ist eine echte Garmin-Entwicklerfreigabe mit sicherem Server und OAuth-Anbindung erforderlich.</div>
+  </div>
+  <div class="card"><h3>Wie soll der Coach entscheiden?</h3><p class="muted">Vorgesehene Logik: subjektive Tagesform + Schlaf + HRV/Ruhepuls-Trend + letzte Trainingsbelastung + Schichtzeiten. Einzelne Messwerte lösen nicht automatisch eine medizinische Bewertung aus.</p></div>
+ </section>
+ <section id="profile">
+  <h2>Dein persönliches Profil</h2>
+  <div class="card"><h3>Trainingsausstattung</h3><div class="row"><input id="equipmentInput" placeholder="Gerät hinzufügen"><button class="btn" id="addEquipment">+</button></div><div id="equipmentList" class="list" style="margin-top:10px"></div></div>
+  <div class="card"><h3>Eigene Parameter</h3><p class="muted">Füge beliebige Kriterien hinzu, die du später tracken möchtest.</p><div class="row"><input id="parameterInput" placeholder="z. B. Muskelkater, Motivation"><button class="btn" id="addParameter">+</button></div><div id="parameterList" class="list" style="margin-top:10px"></div></div>
+  <div class="card"><h3>Deine Ziele & Sportarten</h3><p>Gesundheit und Leistungsfähigkeit verbessern</p><div class="checks"><label>✓ Krafttraining</label><label>✓ Ausdauer</label><label>✓ Laufen</label><label>✓ Radfahren</label><label>✓ Mobility</label><label>✓ Zuhause</label><label>✓ Fitnessstudio</label><label>✓ Schwimmen</label><label>✓ Wandern</label></div></div>
+  <div class="card"><h3>Datensicherung</h3><p class="muted">Daten werden in diesem Browser auf diesem Gerät gespeichert. Exportiere regelmäßig eine Sicherung.</p><button class="btn secondary full" id="exportData">Meine Daten exportieren (JSON)</button><button class="btn danger full" id="clearData">Alle lokalen Daten löschen</button></div>
+ </section>
+ <div class="foot">TB PERFORMANCE 360 · BY TOM BÜTTNER<br>Prototyp – lokale Speicherung auf diesem Gerät</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const KEY='tbp360-v1';
+let state=JSON.parse(localStorage.getItem(KEY)||'null')||{workouts:[],shifts:[],equipment:['Trainingsmatte'],parameters:['Trainingsdauer','Trainingsintensität','Schlafqualität','Tagesform','Regeneration']};
+function save(){localStorage.setItem(KEY,JSON.stringify(state));render()}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function removeFrom(arr,i){arr.splice(i,1);save()}
+function render(){
+ $('workoutCount').textContent=state.workouts.length+' Einheiten';
+ const w=state.workouts.slice().reverse();
+ $('recentWorkouts').innerHTML=w.length?w.slice(0,3).map(x=>`<div class="item"><b>${esc(x.sport)}</b><small>${esc(x.date)} · ${x.duration} Min. · ${esc(x.intensity)}</small></div>`).join(''):'<div class="empty">Noch keine Einheiten erfasst.</div>';
+ $('allWorkouts').innerHTML=w.length?w.map((x,i)=>`<div class="item"><div class="row"><b>${esc(x.sport)}</b><button class="btn danger" data-del-workout="${state.workouts.length-1-i}">Löschen</button></div><small>${esc(x.date)} · ${x.duration} Min. · ${esc(x.intensity)}</small>${x.notes?`<small>${esc(x.notes)}</small>`:''}</div>`).join(''):'<div class="empty">Noch keine Einträge.</div>';
+ $('shiftList').innerHTML=state.shifts.length?state.shifts.slice().sort((a,b)=>a.date.localeCompare(b.date)).map((x)=>`<div class="item"><div class="row"><b>${esc(x.type)}</b><button class="btn danger" data-del-shift="${state.shifts.indexOf(x)}">Löschen</button></div><small>${esc(x.date)} · ${esc(x.start)}–${esc(x.end)}</small></div>`).join(''):'<div class="empty">Noch keine Dienste eingetragen.</div>';
+ $('equipmentList').innerHTML=state.equipment.map((x,i)=>`<div class="item row">${esc(x)}<button class="btn danger" data-del-eq="${i}">Entfernen</button></div>`).join('')||'<div class="empty">Noch keine Geräte eingetragen.</div>';
+ $('parameterList').innerHTML=state.parameters.map((x,i)=>`<div class="item row">${esc(x)}<button class="btn danger" data-del-param="${i}">Entfernen</button></div>`).join('')||'<div class="empty">Noch keine Parameter eingetragen.</div>';
+}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('section').forEach(s=>s.classList.toggle('active',s.id===b.dataset.tab))}));
+$('todayDate').textContent=new Intl.DateTimeFormat('de-DE',{weekday:'short',day:'2-digit',month:'short'}).format(new Date());
+$('feeling').addEventListener('change',e=>{const v=e.target.value;const msg={'Sehr fit':'Du fühlst dich fit. Prüfe trotzdem Schlaf, Belastung und Erholung, bevor du intensiv trainierst.','Gut':'Eine normale Einheit kann passen, wenn auch deine Erholungsdaten dafür sprechen.','Mittelmäßig':'Plane eher locker und passe die Belastung während des Trainings an.','Erschöpft':'Regeneration priorisieren. Sanfte Bewegung ist optional, wenn sie sich gut anfühlt.'};$('coach').textContent=msg[v]||'Wähle deine Tagesform.'});
+$('saveWorkout').onclick=()=>{let d=Number($('duration').value);if(!d||d<1||d>1440){alert('Bitte eine Dauer zwischen 1 und 1440 Minuten eingeben.');return}state.workouts.push({sport:$('sport').value,duration:d,intensity:$('intensity').value,notes:$('trainingNotes').value,date:new Date().toLocaleDateString('de-DE')});$('trainingNotes').value='';save();alert('Training wurde lokal gespeichert.')};
+$('saveShift').onclick=()=>{let date=$('shiftDate').value,type=$('shiftType').value.trim(),start=$('shiftStart').value,end=$('shiftEnd').value;if(!date||!type||!start||!end){alert('Bitte Datum, Diensttyp sowie Beginn und Ende eintragen.');return}state.shifts.push({date,type,start,end});$('shiftType').value='';save();alert('Dienst wurde gespeichert.')};
+$('addEquipment').onclick=()=>{let v=$('equipmentInput').value.trim();if(v&&!state.equipment.includes(v)){state.equipment.push(v);$('equipmentInput').value='';save()}};
+$('addParameter').onclick=()=>{let v=$('parameterInput').value.trim();if(v&&!state.parameters.includes(v)){state.parameters.push(v);$('parameterInput').value='';save()}};
+document.addEventListener('click',e=>{let t=e.target;if(t.dataset.delWorkout!==undefined){state.workouts.splice(+t.dataset.delWorkout,1);save()}if(t.dataset.delShift!==undefined){state.shifts.splice(+t.dataset.delShift,1);save()}if(t.dataset.delEq!==undefined){state.equipment.splice(+t.dataset.delEq,1);save()}if(t.dataset.delParam!==undefined){state.parameters.splice(+t.dataset.delParam,1);save()}});
+$('exportData').onclick=()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='tb-performance-360-daten.json';a.click();URL.revokeObjectURL(a.href)};
+$('clearData').onclick=()=>{if(confirm('Wirklich alle lokal gespeicherten Trainings-, Schicht- und Profildaten löschen?')){localStorage.removeItem(KEY);state={workouts:[],shifts:[],equipment:['Trainingsmatte'],parameters:['Trainingsdauer','Trainingsintensität','Schlafqualität','Tagesform','Regeneration']};render()}};
+if('serviceWorker'in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+render();
+</script>
+</body></html>
