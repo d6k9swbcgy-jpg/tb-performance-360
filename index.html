@@ -177,6 +177,48 @@ section{display:none}section.active{display:block}.grid{display:grid;grid-templa
     Dein persönlicher Trainingsplan erscheint hier.
   </div>
 </section>
+<section id="system">
+  <h2>Mein Trainingssystem</h2>
+
+  <div class="card">
+    <h3>Mein Trainingsblock</h3>
+    <p class="muted">
+      Dein persönlicher Trainingsplan mit fester Wochenstruktur.
+    </p>
+
+    <label>Trainingsblock</label>
+    <select id="blockDuration">
+      <option value="6">6 Wochen</option>
+      <option value="8" selected>8 Wochen</option>
+    </select>
+
+    <label>Krafttrainingstage pro Woche</label>
+    <select id="strengthDays">
+      <option value="2">2 Tage</option>
+      <option value="3">3 Tage</option>
+      <option value="4" selected>4 Tage</option>
+      <option value="5">5 Tage</option>
+    </select>
+
+    <div class="notice">
+      Geplant sind vier Krafttrainingstage sowie ergänzende Ausdauer,
+      Kraftausdauer, HIIT und Regeneration.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Meine Trainingswoche</h3>
+    <div class="list">
+      <div class="item"><b>Montag</b><small>Oberkörper A</small></div>
+      <div class="item"><b>Dienstag</b><small>Ausdauer</small></div>
+      <div class="item"><b>Mittwoch</b><small>Unterkörper A</small></div>
+      <div class="item"><b>Donnerstag</b><small>Regeneration</small></div>
+      <div class="item"><b>Freitag</b><small>Oberkörper B</small></div>
+      <div class="item"><b>Samstag</b><small>Unterkörper B</small></div>
+      <div class="item"><b>Sonntag</b><small>HIIT / Kraftausdauer</small></div>
+    </div>
+  </div>
+</section>
  <section id="shifts">
   <h2>Dein flexibler Schichtplan</h2>
   <div class="card">
