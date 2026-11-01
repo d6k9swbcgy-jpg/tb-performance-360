@@ -255,6 +255,12 @@ const $=id=>document.getElementById(id);
 const KEY='tbp360-v1';
 let state=JSON.parse(localStorage.getItem(KEY)||'null')||{workouts:[],shifts:[],equipment:['Trainingsmatte'],parameters:['Trainingsdauer','Trainingsintensität','Schlafqualität','Tagesform','Regeneration']};
 state.dutySettings ||= {};
+state.trainingSystem ||= {
+  blockDuration: 8,
+  strengthDays: 4,
+  startDate: new Date().toISOString().slice(0, 10),
+  days: {}
+};
 document.querySelectorAll('[data-duty-day]').forEach(select => {
   const day = select.dataset.dutyDay;
 
