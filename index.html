@@ -47,6 +47,45 @@ section{display:none}section.active{display:block}.grid{display:grid;grid-templa
   </div>
   <div class="card"><h3>Trainingshistorie</h3><div id="allWorkouts" class="list empty">Noch keine Einträge.</div></div>
  </section>
+<section id="plan">
+  <h2>Dein persönlicher Trainingsplan</h2>
+
+  <div class="card">
+    <h3>Deine Trainingsziele</h3>
+
+    <label>Was möchtest du erreichen?</label>
+    <select id="planGoal">
+      <option value="allround">Fitness & Gesundheit</option>
+      <option value="strength">Kraft aufbauen</option>
+      <option value="endurance">Ausdauer verbessern</option>
+      <option value="mobility">Beweglichkeit verbessern</option>
+    </select>
+
+    <label>Wie oft möchtest du trainieren?</label>
+    <select id="planSessions">
+      <option value="2">2-mal pro Woche</option>
+      <option value="3" selected>3-mal pro Woche</option>
+      <option value="4">4-mal pro Woche</option>
+      <option value="5">5-mal pro Woche</option>
+    </select>
+
+    <label>Wie viel Zeit hast du?</label>
+    <select id="planDuration">
+      <option value="20">20 Minuten</option>
+      <option value="30" selected>30 Minuten</option>
+      <option value="45">45 Minuten</option>
+      <option value="60">60 Minuten</option>
+    </select>
+
+    <button class="btn full" id="generatePlan">
+      Meinen Trainingsplan erstellen
+    </button>
+  </div>
+
+  <div class="card" id="planResults">
+    Dein persönlicher Trainingsplan erscheint hier.
+  </div>
+</section>
  <section id="shifts">
   <h2>Dein flexibler Schichtplan</h2>
   <div class="card">
@@ -97,6 +136,69 @@ function render(){
 document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('section').forEach(s=>s.classList.toggle('active',s.id===b.dataset.tab))}));
 $('todayDate').textContent=new Intl.DateTimeFormat('de-DE',{weekday:'short',day:'2-digit',month:'short'}).format(new Date());
 $('feeling').addEventListener('change',e=>{const v=e.target.value;const msg={'Sehr fit':'Du fühlst dich fit. Prüfe trotzdem Schlaf, Belastung und Erholung, bevor du intensiv trainierst.','Gut':'Eine normale Einheit kann passen, wenn auch deine Erholungsdaten dafür sprechen.','Mittelmäßig':'Plane eher locker und passe die Belastung während des Trainings an.','Erschöpft':'Regeneration priorisieren. Sanfte Bewegung ist optional, wenn sie sich gut anfühlt.'};$('coach').textContent=msg[v]||'Wähle deine Tagesform.'});
+function createTrainingPlan() {
+  const sessions = Number($('planSessions').value);
+  const duration = Number($('planDuration').value);
+  const goal = $('planGoal').value;
+
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  let workouts = 0;
+  let html = '<h3>Dein Trainingsplan für 7 Tage</h3>';
+
+  for (let i = 0; i < 7; i++) {
+    const day = new Date(today);
+    day.setDate(today.getDate() + i);
+
+    const date = day.getFullYear() + '-' +
+      String(day.getMonth() + 1).padStart(2, '0') + '-' +
+      String(day.getDate()).padStart(2, '0');
+
+    const shift = state.shifts.some(s => s.date === date);
+
+    let title = 'Regeneration';
+    let detail = 'Erholung, Spaziergang oder lockere Bewegung.';
+    let time = 'Flexibel';
+
+    if (!shift && workouts < sessions) {
+      workouts++;
+      time = duration + ' Minuten';
+
+      if (goal === 'strength') {
+        title = 'Krafttraining';
+        detail = 'Ganzkörpertraining: Beine, Rücken, Brust und Rumpf.';
+      } else if (goal === 'endurance') {
+        title = 'Ausdauertraining';
+        detail = 'Lockeres Laufen, Radfahren oder zügiges Gehen.';
+      } else if (goal === 'mobility') {
+        title = 'Mobility';
+        detail = 'Beweglichkeit, Stabilität und Dehnen.';
+      } else {
+        title = workouts % 2 === 1 ? 'Krafttraining' : 'Ausdauertraining';
+        detail = workouts % 2 === 1
+          ? 'Ganzkörpertraining mit kontrollierter Technik.'
+          : 'Lockere Ausdauer für Herz und Kreislauf.';
+      }
+    } else if (shift) {
+      title = 'Schichtdienst';
+      detail = 'Erholung hat Vorrang. Kein Pflichttraining.';
+    }
+
+    html += '<div class="item"><b>' +
+      day.toLocaleDateString('de-DE', {
+        weekday: 'long',
+        day: '2-digit',
+        month: '2-digit'
+      }) +
+      '</b><small>' + title + ' · ' + time +
+      '</small><small>' + detail + '</small></div>';
+  }
+
+  $('planResults').innerHTML = html;
+}
+
+$('generatePlan').onclick = createTrainingPlan;
 $('saveWorkout').onclick=()=>{let d=Number($('duration').value);if(!d||d<1||d>1440){alert('Bitte eine Dauer zwischen 1 und 1440 Minuten eingeben.');return}state.workouts.push({sport:$('sport').value,duration:d,intensity:$('intensity').value,notes:$('trainingNotes').value,date:new Date().toLocaleDateString('de-DE')});$('trainingNotes').value='';save();alert('Training wurde lokal gespeichert.')};
 $('saveShift').onclick=()=>{let date=$('shiftDate').value,type=$('shiftType').value.trim(),start=$('shiftStart').value,end=$('shiftEnd').value;if(!date||!type||!start||!end){alert('Bitte Datum, Diensttyp sowie Beginn und Ende eintragen.');return}state.shifts.push({date,type,start,end});$('shiftType').value='';save();alert('Dienst wurde gespeichert.')};
 $('addEquipment').onclick=()=>{let v=$('equipmentInput').value.trim();if(v&&!state.equipment.includes(v)){state.equipment.push(v);$('equipmentInput').value='';save()}};
