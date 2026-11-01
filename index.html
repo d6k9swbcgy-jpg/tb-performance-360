@@ -260,6 +260,18 @@ state.trainingSystem ||= {
   strengthDays: 4,
   startDate: new Date().toISOString().slice(0, 10),
   days: {}
+  $('blockDuration').value = state.trainingSystem.blockDuration;
+$('strengthDays').value = state.trainingSystem.strengthDays;
+
+$('blockDuration').addEventListener('change', () => {
+  state.trainingSystem.blockDuration = Number($('blockDuration').value);
+  save();
+});
+
+$('strengthDays').addEventListener('change', () => {
+  state.trainingSystem.strengthDays = Number($('strengthDays').value);
+  save();
+});
 };
 document.querySelectorAll('[data-duty-day]').forEach(select => {
   const day = select.dataset.dutyDay;
