@@ -218,6 +218,38 @@ section{display:none}section.active{display:block}.grid{display:grid;grid-templa
       <div class="item"><b>Sonntag</b><small>HIIT / Kraftausdauer</small></div>
     </div>
   </div>
+    <div class="card">
+    <h3>Meine Übungen</h3>
+
+    <label for="exerciseDay">Trainingstag auswählen</label>
+    <select id="exerciseDay">
+      <option value="monday">Montag – Oberkörper A</option>
+      <option value="wednesday">Mittwoch – Unterkörper A</option>
+      <option value="friday">Freitag – Oberkörper B</option>
+      <option value="saturday">Samstag – Unterkörper B</option>
+    </select>
+
+    <div id="exerciseList" class="list"></div>
+
+    <h3>Neue Übung hinzufügen</h3>
+
+    <label for="exerciseName">Übungsname</label>
+    <input id="exerciseName" placeholder="z. B. Schrägbankdrücken">
+
+    <label for="exerciseSets">Sätze</label>
+    <input id="exerciseSets" type="number" min="1" value="3">
+
+    <label for="exerciseReps">Wiederholungen</label>
+    <input id="exerciseReps" placeholder="z. B. 8–12">
+
+    <label for="exerciseWeight">Gewicht in kg</label>
+    <input id="exerciseWeight" type="number" min="0" step="0.5" placeholder="z. B. 40">
+
+    <label for="exerciseRest">Pause in Sekunden</label>
+    <input id="exerciseRest" type="number" min="0" value="120">
+
+    <button class="btn full" id="addExercise">Übung hinzufügen</button>
+  </div>
 </section>
  <section id="shifts">
   <h2>Dein flexibler Schichtplan</h2>
