@@ -272,7 +272,7 @@ const dailySetting = document.querySelector(
 
   if ((!shift || dailySetting === 'yes' || dailySetting === 'flexible') && workouts < sessions) {
       workouts++;
-      time = duration + ' Minuten';
+      time = (shift ? 'Während des Dienstes · ' : '') + duration + ' Minuten';
 
       if (goal === 'strength') {
         title = 'Krafttraining';
