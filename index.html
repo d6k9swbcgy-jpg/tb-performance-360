@@ -193,7 +193,7 @@ const dutyTraining = $('planDutyTraining').value;
     let detail = 'Erholung, Spaziergang oder lockere Bewegung.';
     let time = 'Flexibel';
 
-    if (!shift && workouts < sessions) {
+   if ((!shift || dutyTraining === 'yes' || dutyTraining === 'flexible') && workouts < sessions) {
       workouts++;
       time = duration + ' Minuten';
 
