@@ -306,6 +306,23 @@ $('strengthDays').addEventListener('change', () => {
   state.trainingSystem.strengthDays = Number($('strengthDays').value);
   save();
 });
+const defaultExercises = {
+  monday: [
+    {name:'Dips mit Zusatzgewicht',sets:3,reps:'6–10',weight:0,rest:180},
+    {name:'Klimmzüge mit Zusatzgewicht',sets:3,reps:'6–10',weight:0,rest:180},
+    {name:'Bankdrücken',sets:3,reps:'6–10',weight:0,rest:180},
+    {name:'Schulterdrücken',sets:3,reps:'8–12',weight:0,rest:120}
+  ],
+  wednesday: [],
+  friday: [],
+  saturday: []
+};
+
+Object.keys(defaultExercises).forEach(day => {
+  if (!state.trainingSystem.days[day]) {
+    state.trainingSystem.days[day] = defaultExercises[day];
+  }
+});
 document.querySelectorAll('[data-duty-day]').forEach(select => {
   const day = select.dataset.dutyDay;
 
