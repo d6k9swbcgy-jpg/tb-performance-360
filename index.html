@@ -336,6 +336,55 @@ document.querySelectorAll('[data-duty-day]').forEach(select => {
   });
 });
 function save(){localStorage.setItem(KEY,JSON.stringify(state));render()}
+function renderExercises() {
+  const day = $('exerciseDay').value;
+  const exercises = state.trainingSystem.days[day] || [];
+
+  $('exerciseList').innerHTML = exercises.map((ex, index) => `
+    <div class="item">
+      <b>${esc(ex.name)}</b>
+      <small>
+        ${ex.sets} Sätze · ${esc(ex.reps)} Wdh. ·
+        ${ex.weight} kg · ${ex.rest} Sek. Pause
+      </small>
+      <button class="btn danger" onclick="deleteExercise(${index})">
+        Löschen
+      </button>
+    </div>
+  `).join('') || '<p class="muted">Noch keine Übungen vorhanden.</p>';
+}
+
+function deleteExercise(index) {
+  const day = $('exerciseDay').value;
+  state.trainingSystem.days[day].splice(index, 1);
+  save();
+  renderExercises();
+}
+
+$('exerciseDay').addEventListener('change', renderExercises);
+
+$('addExercise').addEventListener('click', () => {
+  const name = $('exerciseName').value.trim();
+  if (!name) {
+    alert('Bitte einen Übungsnamen eingeben.');
+    return;
+  }
+
+  const day = $('exerciseDay').value;
+  state.trainingSystem.days[day].push({
+    name,
+    sets: Number($('exerciseSets').value) || 3,
+    reps: $('exerciseReps').value.trim() || '8–12',
+    weight: Number($('exerciseWeight').value) || 0,
+    rest: Number($('exerciseRest').value) || 120
+  });
+
+  $('exerciseName').value = '';
+  save();
+  renderExercises();
+});
+
+renderExercises();
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function removeFrom(arr,i){arr.splice(i,1);save()}
 function render(){
