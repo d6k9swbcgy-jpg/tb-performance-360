@@ -95,6 +95,66 @@ section{display:none}section.active{display:block}.grid{display:grid;grid-templa
     </select>
 
     <label>Wie viel Zeit hast du?</label>
+    <label>Trainingsmöglichkeit während des Dienstes – pro Tag</label>
+
+<div id="dailyDutySettings" class="list">
+  <div class="item">
+    <b>Montag</b>
+    <select data-duty-day="1">
+      <option value="flexible">Flexibel</option>
+      <option value="yes">Training möglich</option>
+      <option value="no">Kein Training möglich</option>
+    </select>
+  </div>
+  <div class="item">
+    <b>Dienstag</b>
+    <select data-duty-day="2">
+      <option value="flexible">Flexibel</option>
+      <option value="yes">Training möglich</option>
+      <option value="no">Kein Training möglich</option>
+    </select>
+  </div>
+  <div class="item">
+    <b>Mittwoch</b>
+    <select data-duty-day="3">
+      <option value="flexible">Flexibel</option>
+      <option value="yes">Training möglich</option>
+      <option value="no">Kein Training möglich</option>
+    </select>
+  </div>
+  <div class="item">
+    <b>Donnerstag</b>
+    <select data-duty-day="4">
+      <option value="flexible">Flexibel</option>
+      <option value="yes">Training möglich</option>
+      <option value="no">Kein Training möglich</option>
+    </select>
+  </div>
+  <div class="item">
+    <b>Freitag</b>
+    <select data-duty-day="5">
+      <option value="flexible">Flexibel</option>
+      <option value="yes">Training möglich</option>
+      <option value="no">Kein Training möglich</option>
+    </select>
+  </div>
+  <div class="item">
+    <b>Samstag</b>
+    <select data-duty-day="6">
+      <option value="flexible">Flexibel</option>
+      <option value="yes">Training möglich</option>
+      <option value="no">Kein Training möglich</option>
+    </select>
+  </div>
+  <div class="item">
+    <b>Sonntag</b>
+    <select data-duty-day="0">
+      <option value="flexible">Flexibel</option>
+      <option value="yes">Training möglich</option>
+      <option value="no">Kein Training möglich</option>
+    </select>
+  </div>
+</div>
     <label>Training während des Dienstes möglich?</label>
 <select id="planDutyTraining">
   <option value="yes">Ja, Training während des Dienstes ist möglich</option>
@@ -187,13 +247,17 @@ function createTrainingPlan() {
       String(day.getDate()).padStart(2, '0');
 
     const shift = state.shifts.some(s => s.date === date);
-const dutyTraining = $('planDutyTraining').value;
+const weekday = day.getDay();
+
+const dailySetting = document.querySelector(
+  '[data-duty-day="' + weekday + '"]'
+).value;
 
     let title = 'Regeneration';
     let detail = 'Erholung, Spaziergang oder lockere Bewegung.';
     let time = 'Flexibel';
 
-   if ((!shift || dutyTraining === 'yes' || dutyTraining === 'flexible') && workouts < sessions) {
+  if ((!shift || dailySetting === 'yes' || dailySetting === 'flexible') && workouts < sessions) {
       workouts++;
       time = duration + ' Minuten';
 
