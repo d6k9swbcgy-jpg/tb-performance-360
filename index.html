@@ -213,6 +213,18 @@ const $=id=>document.getElementById(id);
 const KEY='tbp360-v1';
 let state=JSON.parse(localStorage.getItem(KEY)||'null')||{workouts:[],shifts:[],equipment:['Trainingsmatte'],parameters:['Trainingsdauer','Trainingsintensität','Schlafqualität','Tagesform','Regeneration']};
 state.dutySettings ||= {};
+document.querySelectorAll('[data-duty-day]').forEach(select => {
+  const day = select.dataset.dutyDay;
+
+  if (state.dutySettings[day]) {
+    select.value = state.dutySettings[day];
+  }
+
+  select.addEventListener('change', () => {
+    state.dutySettings[day] = select.value;
+    localStorage.setItem(KEY, JSON.stringify(state));
+  });
+});
 function save(){localStorage.setItem(KEY,JSON.stringify(state));render()}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function removeFrom(arr,i){arr.splice(i,1);save()}
